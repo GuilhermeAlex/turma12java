@@ -1,0 +1,9 @@
+SPRINT- tempo de entrega
+ARTEFACTO- Nossos códigos
+SE=
+SENAO SE= quando tem mais de uma resposta
+SENAO= Tratamento de erro
+GRAFICO BURNDOWN= gráfico de avaliação
+
+git - repositório local de versionamento
+GitHub - repositório  na nuvem de versionamento
