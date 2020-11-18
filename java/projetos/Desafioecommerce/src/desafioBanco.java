@@ -10,7 +10,8 @@ public class desafioBanco {
 		
 		String numeroConta;
 		String cpf;
-		double Saldo = 100;
+		double Saldo[] = new double [10];
+		int Saldoc = 100;
 		int dataAniversario;
 		double credito = 0;
 		double debito;
@@ -31,9 +32,9 @@ public class desafioBanco {
 		codigo=leia.nextInt();
 		if (codigo==1) 
 		{
-			Saldo= Saldo + (Saldo*0.05);
+			Saldo[x]= 100 + (Saldo[x]*0.05);
 			System.out.println("Você ganhou um bonus de 0,5% sobre seu Saldo");
-			System.out.printf("Saldo R$: %.2f ",Saldo);
+			System.out.printf("Saldo R$: %.2f ",Saldo[x]);
 			
 			for (x=0; x<10; x++) 
 			{
@@ -44,28 +45,36 @@ public class desafioBanco {
 					System.out.println("\nQuanto deseja creditar?:");
 					
 					credito=leia.nextDouble();
-					Saldo=Saldo+credito;
+					Saldo[x]=Saldo[x]+credito;
 					
 				}
 				else if (codigo ==2)
 				{
 					System.out.println("\nQuanto deseja debitar?");
 					debito=leia.nextDouble();
-					Saldo=Saldo-debito;
+					Saldo[x]=100-debito;
 					
 				}
 				else 
 				{
 					System.out.println("codigo digitado invalido!!");
 				}
-				System.out.printf("Seu saldo é: %.2f", Saldo);
+				System.out.printf("Seu saldo é: %.2f", Saldo[x]);
 	
 			
 			} System.out.println("\nVOCÊ ATINGIU O LIMETE DE 10 MOVIMENTAÇÕES!");
 		}
 		
+		System.out.print("\n-------------------------------\n");
+		System.out.print("Conta: "+numeroConta+"\t"+"cpf: "+cpf);
 		
+		System.out.print("\n-------------------------------\n");
 		
-	}
+		for(x=0;x<10;x++) 
+		{
+			System.out.printf("\nR$ %.2f",Saldo[x],"\n");
+		
+		}
 
+}
 }
