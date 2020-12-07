@@ -6,67 +6,76 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table (name="postagem")
+@Table(name = "postagem")
 
-	public class PostagemModel 
-	{
-		@Id
-		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private long id; 
-	
-		@NotNull
-		@Size(min= 5, max= 100)
-		private String titulo; 
-	
-		@NotNull
-		@Size(min= 10, max= 500)
-		private String texto; 
-	
-		@Temporal (TemporalType.TIMESTAMP)
+public class PostagemModel {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
-		
-		
-		private Date date = new java.sql.Date(System.currentTimeMillis());
-		//GETTERS AND SETTERS
-		public long getId() {
-			return id;
-		}
+	@NotNull
+	@Size(min = 5, max = 100)
+	private String titulo;
 
-		public void setId(long id) {
-			this.id = id;
-		}
+	@NotNull
+	@Size(min = 10, max = 500)
+	private String texto;
 
-		public String getTitulo() {
-			return titulo;
-		}
+	@Temporal(TemporalType.TIMESTAMP)
 
-		public void setTitulo(String titulo) {
-			this.titulo = titulo;
-		}
+	private Tema tema;
 
-		public String getTexto() {
-			return texto;
-		}
+	private Date date = new java.sql.Date(System.currentTimeMillis());
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	// GETTERS AND SETTERS
+	public long getId() {
+		return id;
+	}
 
-		public void setTexto(String texto) {
-			this.texto = texto;
-		}
+	public void setId(long id) {
+		this.id = id;
+	}
 
-		public Date getDate() {
-			return date;
-		}
+	public String getTitulo() {
+		return titulo;
+	}
 
-		public void setDate(Date date) {
-			this.date = date;
-		}
-		
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 }
-
