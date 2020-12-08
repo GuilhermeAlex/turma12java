@@ -16,7 +16,7 @@ public class SwaggerConfig {
 	@Bean
 	public Docket docket() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("generation.org.blogPessoal.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.example.demo"))
 				.paths(PathSelectors.any()).build().apiInfo(apiInfo());
 	}
 	private ApiInfo apiInfo() {
