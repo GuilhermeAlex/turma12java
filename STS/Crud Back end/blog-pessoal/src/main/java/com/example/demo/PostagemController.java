@@ -1,5 +1,7 @@
 package com.example.demo;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-@RestController //informa para o spring que ele é um controlador
-@RequestMapping("/postagens")// qual é a RI(oq esta dentro ("/") que essa classe será acessada como a principal
+
+@RestController //informa para o spring que ele é um controlador 
+@RequestMapping("/postagens")// qual é a RI(oq esta dentro ("/") que essa classe será acessada como a principal 
 @CrossOrigin("*")//Ele vai aceitar requicoes de qlq origin
+
 public class PostagemController
 {
-	@Autowired //para instanciar essa interface, injecao
+	@Autowired //para instanciar essa interface, injecao 
 	private PostagemRepository repository;
 	
 	@GetMapping
@@ -48,10 +52,10 @@ public class PostagemController
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
-	@DeleteMapping("/{id}")// void nao vai retornar nada
-	public void delete(@PathVariable long id)
+	@DeleteMapping("/{id}")// void nao vai retornar nada 
+	public void delete(@PathVariable long id) 
 	{
-		repository.deleteById(id);//como ele é um void nao tem return
+		repository.deleteById(id);//como ele é um void nao tem return 
 	}
 	
 }

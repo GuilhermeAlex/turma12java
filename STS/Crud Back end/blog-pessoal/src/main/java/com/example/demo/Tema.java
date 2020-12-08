@@ -9,51 +9,51 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 
 @Entity
-@Table (name="tb_tema")
-public class Tema 
+@Table (name= "tb_tema")
+
+public class Tema
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private long id;
-	
 	
 	@NotNull
 	private String descricao;
 	
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy= "tema", cascade=CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
-	private List<PostagemModel> postagem;
-
-	//GETTERS AND SETTERS
-	public long getId() {
+	private List<PostagemModel>postagem;
+	
+	public long getId() 
+	{
 		return id;
 	}
-
-	public void setId(long id) {
+	public void setId(long id)
+	{
 		this.id = id;
 	}
-
-	public String getDescricao() {
+	public String getDescricao() 
+	{
 		return descricao;
 	}
-
-	public void setDescricao(String descricao) {
+	public void setDescricao(String descricao) 
+	{
 		this.descricao = descricao;
 	}
-
-	public List<PostagemModel> getPostagem() {
+	public List<PostagemModel> getPostagem()
+	{
 		return postagem;
 	}
-
-	public void setPostagem(List<PostagemModel> postagem) {
+	public void setPostagem(List<PostagemModel> postagem) 
+	{
 		this.postagem = postagem;
 	}
-	
-	
 	
 }
